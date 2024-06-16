@@ -28,12 +28,24 @@ table.listagem td{
 table.listagem tr:nth-child(even){
     background-color: gainsboro;
 }
+table.listagem tr:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
 table.listagem td:nth-child(1){
     width: 50px;
 }
 table.listagem td:nth-child(3){
     width: 90px;
 }
+table.detalhes{
+    width: 100%;
+}
 img.mini{	
 	width: 50px;
+}
+a:visited, a:active{
+    color: blue;
+}
+p{
+    text-align: justify;
 }

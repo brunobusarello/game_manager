@@ -10,7 +10,7 @@
 	<?php
 		// "COPIA" o arquivo banco.php
 		require_once "includes/banco.php";
-		require_once "includes/funcoes.php+"
+		require_once "includes/funcoes.php"
 	?>
     <div id="corpo">
         <h1>Escolha seu jogo</h1>
@@ -28,7 +28,8 @@
 						else{
 							while($reg = $busca->fetch_object()){
 								$t = thumb("$reg->capa");
-								echo "<tr><td><img src='$t' class='mini'><td>$reg->nome";
+								echo "<tr><td><img src='$t' class='mini'>";
+								echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a>";
 								echo "<td>Adm";
 							}
 						}
