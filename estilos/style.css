@@ -28,9 +28,6 @@ table.listagem td{
 table.listagem tr:nth-child(even){
     background-color: gainsboro;
 }
-table.listagem tr:hover{
-    background-color: rgba(0, 0, 0, 0.1);
-}
 table.listagem td:nth-child(1){
     width: 50px;
 }
@@ -42,6 +39,11 @@ table.detalhes{
 }
 img.mini{	
 	width: 50px;
+}
+table.listagem td img:hover{
+    display: flex;
+    transition-duration: 0.2s;
+    width: 120px;
 }
 a:visited, a:active{
     color: blue;

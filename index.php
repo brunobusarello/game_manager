@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Jogos</title>
     <link rel="stylesheet" href="estilos/style.css">
+	<link rel="shortcut icon" href="icones/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<?php
