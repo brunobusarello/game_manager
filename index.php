@@ -18,7 +18,7 @@
         <div class="table">
             <table class="listagem">
 				<?php
-					$busca = $banco->query("select * from jogos order by nome");
+					$busca = $banco->query("select * from jogos order by cod");
 					if(!$busca){
 						echo "<tr><td>Infelizmente a busca deu errado";
 					}

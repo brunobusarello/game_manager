@@ -1,6 +1,7 @@
 body {
     background-color: gray;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 div#corpo{
     width: 800px;
@@ -17,16 +18,17 @@ table.listagem{
     width: 100%;
     text-align: left;
     border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
 }
 table.listagem tr{
     height: 50px;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.178);
 }
 table.listagem td{
     padding: 10px;
 }
 table.listagem tr:nth-child(even){
-    background-color: gainsboro;
+    background-color: rgb(231, 230, 230);
 }
 table.listagem td:nth-child(1){
     width: 50px;
@@ -39,11 +41,23 @@ table.detalhes{
 }
 img.mini{	
 	width: 50px;
+    user-select: none;
+    border-radius: 5px;
 }
 table.listagem td img:hover{
     display: flex;
-    transition-duration: 0.2s;
     width: 120px;
+    cursor: pointer;
+
+}
+table.listagem img{
+    transition-duration: 0.2s;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    
 }
 a:visited, a:active{
     color: blue;
