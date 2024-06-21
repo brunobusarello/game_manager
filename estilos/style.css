@@ -107,3 +107,12 @@ div.scroll table td:nth-child(1){
 img.mini{
     width: 50px;
 }
+a{
+    color: black;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    font-weight: 500;
+}
+a:hover{
+    text-decoration: underline;
+}

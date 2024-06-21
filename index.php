@@ -37,6 +37,7 @@
                     <td>ID</td>
                     <td>Capa</td>
                     <td>Jogo</td>
+                    <td>Detalhes</td>
                     <td>ADM</td>
                 </tr>
                 <?php
@@ -54,6 +55,7 @@
                                 echo "<tr><td>$reg->cod";
 								echo "<td><img src='$t' class='mini'>";
 								echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a>";
+                                echo "<td><a href='index.php?cod=$reg->cod'>Arrow</a>";
 								echo "<td>Adm";
 							}
 						}
