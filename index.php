@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/main.css">
 </head>
 <body>
     <?php
@@ -55,7 +55,7 @@
                                 echo "<tr><td>$reg->cod";
 								echo "<td><img src='$t' class='mini'>";
 								echo "<td><a href='detalhes.php?cod=$reg->cod'>$reg->nome</a>";
-                                echo "<td><a href='index.php?cod=$reg->cod'>Arrow</a>";
+                                echo "<td><a class='details' href='index.php?cod=$reg->cod'><img class='arrow' src='icones/icoback.png'</img></a>";
 								echo "<td>Adm";
 							}
 						}

@@ -4,40 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Jogo</title>
-    <link rel="stylesheet" href="estilos/style.css">
     <link rel="shortcut icon" href="icones/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/details.css">
 </head>
 <body>
     <?php
         require_once "includes/banco.php";
         require_once "includes/funcoes.php";
     ?>
-    <div id="corpo">
+    <main>
         <?php
             $c = $_GET['cod'] ?? 0;
             $busca = $banco->query("select * from jogos where cod='$c'");
         ?>
-        <h1>Detalhes do jogo</h1>
-        <table class="detalhes">
-            <?php
-                if(!$busca){
-                    echo "Busca falhou! $banco->error";
+        <header>
+            <h1>Game Manager</h1>
+            <p>Adm</p>
+        </header>
+        <?php
+            if(!$busca){
+                echo "Busca falhou! $banco->error";
+            }
+            else{
+                if($busca->num_rows == 1){
+                    $reg = $busca->fetch_object();
+                    $foto = thumb("$reg->capa");
+                    echo "<h2>$reg->nome</h2>";
+                    echo "<div class='container'>";
+                    echo "<img src='$foto'>";
+                    echo "<p class='desc'>$reg->descricao</p>";
+                    echo "</div>";
                 }
                 else{
-                    if($busca->num_rows == 1){
-                        $reg = $busca->fetch_object();
-                        $foto = thumb("$reg->capa");
-                        echo "<tr><td rowspan='3'><img src='$foto'>";
-                        echo "<td><h2>$reg->nome</h2>";
-                        echo "<tr><td><p>$reg->descricao</p>"; 
-                        echo "<tr><td>Adm";
-                    }
-                    else{
-                        echo "<tr><td>Nenhum registro encontrado";
-                    }
+                    echo "<tr><td>Nenhum registro encontrado";
                 }
-            ?>
-        </table>
-    </div>
+            }
+        ?>
+    </main>
 </body>
 </html>

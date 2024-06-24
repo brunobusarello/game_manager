@@ -104,8 +104,19 @@ table td{
 div.scroll table td:nth-child(1){
     text-align: right;
 }
+img.arrow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    transform: rotate(180deg);
+}
 img.mini{
     width: 50px;
+}
+img.arrow:active{
+    transform: rotate(-90deg);
 }
 a{
     color: black;
