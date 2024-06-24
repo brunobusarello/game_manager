@@ -4,17 +4,18 @@
     font-family: "Montserrat";
 }
 body {
-    padding: 10px;
     background-color: whitesmoke;
     display: flex;
+    height: 100vh;
     justify-content: center;
+    align-items: center;
 }
 main {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.123);
     border-radius: 10px;
     background-color: white;
-    /*display: flex;
-    flex-direction: column;*/
+    display: flex;
+    flex-direction: column;
     width: 800px;
 }
 header{
@@ -25,6 +26,7 @@ header{
 }
 div.container {
     display: flex;
+
 }
 h2{
     padding-left: 30px;
@@ -36,5 +38,5 @@ img {
 }
 p.desc {
     text-align: justify;
-    padding: 15px;
+    padding: 15px 30px 20px 10px;
 }
