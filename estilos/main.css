@@ -6,8 +6,7 @@
 
 body {
     padding: 10px;
-    height: calc(100vh - 20px);
-    background-color: whitesmoke;
+    background-color: red;
     display: flex;
     justify-content: center;
 }
@@ -23,107 +22,21 @@ main {
     height: 100%;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-}
-
-header input#buscar {
-    padding: 4.5px 5px 4.5px 30px;
-    border-radius: 5px;
-    border: 1px #9E9E9E solid;
-    outline: none;
-}
-
-.search {
-    position: relative;
-}
-
-.search label {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: 4.5px;
-    left: 5px;
-}
-
-.search span {
-    font-size: 18px;
-}
-
 div.scroll {
+    height: 85vh;
     overflow-y: scroll;
-}
-
-div.table{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
 }
 
 div.scroll::-webkit-scrollbar {
     width: 12px;
-    /* width of the entire scrollbar */
 }
 
 div.scroll::-webkit-scrollbar-track {
     background: none;
-    /* color of the tracking area */
 }
 
 div.scroll::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.178);
-    /* color of the scroll thumb */
     border-radius: 20px;
-    /* roundness of the scroll thumb */
     border: 3px solid white
-    /* creates padding around scroll thumb */
-}
-
-table{
-    border-collapse: collapse;
-}
-div.scroll tr{
-    background-color: white;
-
-}
-table tr.header {
-    font-weight: bold;
-    padding: 10px;
-}
-
-table tr:nth-child(even){
-    background-color: #F7F6FE;
-}
-
-table td{
-    padding: 10px;
-}
-div.scroll table td:nth-child(1){
-    text-align: right;
-}
-img.arrow{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    transform: rotate(180deg);
-}
-img.mini{
-    width: 50px;
-}
-img.arrow:active{
-    transform: rotate(-90deg);
-}
-a{
-    color: black;
-    text-decoration: none;
-    transition-duration: 0.2s;
-    font-weight: 500;
-}
-a:hover{
-    text-decoration: underline;
 }
