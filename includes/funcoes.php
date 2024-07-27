@@ -8,3 +8,8 @@
             return $caminho;
         }
     }
+
+    function sucs_msg(){
+        
+    }
+?>
