@@ -125,3 +125,7 @@ img.mini {
   .bd-mode-toggle .dropdown-menu .active .bi {
     display: block !important;
   }
+
+  .filtrado {
+    font-size: 20px;
+  }

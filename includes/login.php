@@ -1,5 +1,8 @@
 <?php
     session_start();
+    $_SESSION['user'] = "";
+    $_SESSION['nome'] = "";
+    $_SESSION['tipo'] = "";
 
     if(!isset($_SESSION['user'])){   
         $_SESSION['user'] = "";

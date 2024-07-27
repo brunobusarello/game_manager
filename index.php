@@ -75,11 +75,15 @@
                     <?php
                         if(!empty($chave)){
                             echo "
-                                <div class=\"alert alert-primary p-1 d-flex align-self-end\" role=\"alert\">
-                                    $chave
-                                    <a href='index.php'>
-                                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
-                                    </a>
+                                <div class=\"alert alert-primary p-1 d-flex\" role=\"alert\">
+                                    <div class=\"align-self-center\">
+                                        $chave
+                                        <a href='index.php'>
+                                            <span class=\"material-symbols-outlined filtrado\">
+                                                close
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             ";
                         }
@@ -107,7 +111,7 @@
     <script src="script/script.js"></script>
     <script type="text/javascript">
         <?php if ($chave != "") { ?>
-            const toastLiveExample = document.getElementById('btnToast');
+            const toastLiveExample = document.getElementById('filterBtn');
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
             toastBootstrap.show();
             

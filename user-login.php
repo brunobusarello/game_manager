@@ -27,6 +27,10 @@
             margin: auto;
             width: 75%;
         }
+
+        .msgAlert{
+            width: 98%;
+        }
     </style>
 </head>
 <body class="bg-body-tertiary">
@@ -41,6 +45,7 @@
       include_once "pages/theme.php";
       $u = $_POST['usuario'] ?? null;
       $s = $_POST['senha'] ?? null;
+      $msg = $_GET['msg'] ?? null;
 	  ?>
     <main>
         <header>
@@ -50,9 +55,25 @@
                 </div>
             </div>
             <?php
-                if (is_null($u) || is_null($s)) { ?>
+                if (is_null($u) || is_null($s)) {   ?>
                     <form action="user-login.php" method="post">
                         <div class="input-group mb-3 formLogin">
+                            <?php
+                                if($msg == '1'){
+                                    echo "
+                                        <div class=\"alert alert-danger msgAlert\" role=\"alert\">
+                                            Senha incorreta!
+                                        </div>
+                                    ";
+                                }
+                                elseif ($msg == '2') {
+                                    echo "
+                                        <div class=\"alert alert-danger msgAlert\" role=\"alert\">
+                                            Usuário não encontrado!
+                                        </div>
+                                    ";
+                                }  
+                            ?>
                             <div class="mb-3 w-100">
                                 <label for="usuario" class="form-label">Usuário</label>
                                 <input type="text" id="usuario" name="usuario" class="form-control">
@@ -87,12 +108,12 @@
                                 exit();
                             }
                             else {
-                                header('Location: user-login.php');
+                                header('Location: user-login.php?msg=1');
                                 exit();
                             }
                         }
                         else {
-                            header('Location: user-login.php');
+                            header('Location: user-login.php?msg=2');
                             exit();
                         }
                     }
