@@ -31,16 +31,25 @@
     </svg>
 
     <?php
-        ob_start();
+      ob_start();
       // "COPIA" o arquivo banco.php
       require_once "includes/banco.php";
       require_once "includes/funcoes.php";
       require_once "includes/login.php";
       include_once "pages/toasts.php";
       include_once "pages/theme.php";
+      include_once "pages/add.php";
       $ordem = $_GET['o'] ?? "n";
       $chave = $_GET['c'] ?? "";
       $lista = $_GET['l'] ?? "";
+      $btnAdmin = "";
+      $btnEditor = "";
+      if(is_admin()){
+        $btnAdmin = file_get_contents("pages/add.php");
+      }
+      if(is_logado()){
+        $btnEditor = file_get_contents("pages/gerenciar.php");
+      }
       $mostrar = "";
       if(empty($_SESSION['user'])){
         $mostrar = "<a class=\"btn btn-primary\" href=\"user-login.php\" role=\"button\">Login</a>";
@@ -82,53 +91,24 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-row justify-content-between">
-                <div class="align-self-end ps-4 pt-4 d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
-                    <ul class="nav nav-underline">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?o=n&c=<?php echo $chave ?>">Nome</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?o=p&c=<?php echo $chave?>">Produtora</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?o=n1&c=<?php echo $chave?>">Nota Alta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?o=n2&c=<?php echo $chave?>">Nota Baixa</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="ps-4 pt-4 align-self-end d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
-                    <?php
-                    if(!empty($chave)){
-                        echo "    
-                        <span class=\"badge d-flex p-2 align-items-center text-primary-emphasis bg-primary-subtle rounded-pill\">
-                                <span class=\"px-1\">$chave</span>
-                                <a href=\"index.php\"><svg class=\"bi ms-1\" width=\"16\" height=\"16\"><use xlink:href=\"#x-circle-fill\"/></svg></a>
-                            </span>
-                        ";
-                    }
-                    ?>
-                </div>
-
-                <div class="pe-3 pt-4 align-self-center d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
-                    <?php include_once("pages/filtrar.php"); ?>
-                </div>
-            </div>
-
             <!-- Offcanvas -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="celMenu offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <!-- Conteúdo do offcanvas -->
-                    <div class="p-3 w-100">
+                    <div class="p-3">
                         <?php
                             echo $mostrar;
+                        ?>
+                    </div>
+
+                    <div class="p-3">
+                        <?php
+                            echo $btnAdmin;
+                            echo $btnEditor;
                         ?>
                     </div>
 
@@ -170,6 +150,47 @@
                     </div>
                 </div>
             </div>
+
+            <div class="d-flex flex-row justify-content-between">
+                <div class="align-self-end ps-4 pt-4 d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
+                    <ul class="nav nav-underline">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?o=n&c=<?php echo $chave ?>">Nome</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?o=p&c=<?php echo $chave?>">Produtora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?o=n1&c=<?php echo $chave?>">Nota Alta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?o=n2&c=<?php echo $chave?>">Nota Baixa</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ps-4 pt-4 align-self-end d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
+                    <?php
+                    if(!empty($chave)){
+                        echo "    
+                        <span class=\"badge d-flex p-2 align-items-center text-primary-emphasis bg-primary-subtle rounded-pill\">
+                                <span class=\"px-1\">$chave</span>
+                                <a href=\"index.php\"><svg class=\"bi ms-1\" width=\"16\" height=\"16\"><use xlink:href=\"#x-circle-fill\"/></svg></a>
+                            </span>
+                        ";
+                    }
+                    ?>
+                </div>
+
+                <div class="pe-3 pt-4 align-self-center d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
+                    <?php
+                        echo $btnAdmin;
+                        echo $btnEditor;
+                        include_once("pages/filtrar.php"); 
+                    ?>
+                </div>
+            </div>
+
         </header>
 
         <div class="table scroll">

@@ -129,3 +129,11 @@ img.mini {
   .filtrado {
     font-size: 20px;
   }
+
+  .celMenu {
+    z-index: 1500;
+  }
+
+  .fullModal{
+    z-index: 9999;
+  }

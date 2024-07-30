@@ -32,4 +32,25 @@
         unset($_SESSION['tipo']);
     }
 
+    function is_logado(){
+        if(empty($_SESSION['user'])){
+            return false;
+        }
+        return true;
+    }
+
+    function is_admin(){
+        if ($_SESSION['tipo'] == 'admin') {
+            return true;
+        }
+        return false;
+    }
+    
+    function is_editor(){
+        if ($_SESSION['tipo'] == 'editor') {
+            return true;
+        }
+        return false;
+    }
+
 ?>
