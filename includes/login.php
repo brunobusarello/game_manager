@@ -1,8 +1,5 @@
 <?php
     session_start();
-    $_SESSION['user'] = "";
-    $_SESSION['nome'] = "";
-    $_SESSION['tipo'] = "";
 
     if(!isset($_SESSION['user'])){   
         $_SESSION['user'] = "";
@@ -28,4 +25,11 @@
         $cri = cripto($senha);
         return password_verify($cri, $hash);
     }
+
+    function logout(){
+        unset($_SESSION['user']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['tipo']);
+    }
+
 ?>
