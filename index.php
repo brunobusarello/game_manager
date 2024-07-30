@@ -36,20 +36,15 @@
       require_once "includes/banco.php";
       require_once "includes/funcoes.php";
       require_once "includes/login.php";
-      include_once "pages/toasts.php";
-      include_once "pages/theme.php";
-      include_once "pages/add.php";
+      require_once "pages/toasts.php";
+      require_once "pages/theme.php";
+      require_once "pages/add.php";
+      require_once "pages/gerenciar.php";
       $ordem = $_GET['o'] ?? "n";
       $chave = $_GET['c'] ?? "";
       $lista = $_GET['l'] ?? "";
       $btnAdmin = "";
       $btnEditor = "";
-      if(is_admin()){
-        $btnAdmin = file_get_contents("pages/add.php");
-      }
-      if(is_logado()){
-        $btnEditor = file_get_contents("pages/gerenciar.php");
-      }
       $mostrar = "";
       if(empty($_SESSION['user'])){
         $mostrar = "<a class=\"btn btn-primary\" href=\"user-login.php\" role=\"button\">Login</a>";
@@ -107,8 +102,12 @@
 
                     <div class="p-3">
                         <?php
-                            echo $btnAdmin;
-                            echo $btnEditor;
+                            if(is_admin()){
+                                echo addModal('offCanva');
+                            }
+                            if(is_logado()){
+                                echo manModal('offCan');
+                            }
                         ?>
                     </div>
 
@@ -184,8 +183,12 @@
 
                 <div class="pe-3 pt-4 align-self-center d-none d-lg-block"> <!-- Ocultar em dispositivos menores -->
                     <?php
-                        echo $btnAdmin;
-                        echo $btnEditor;
+                        if(is_admin()){
+                            echo addModal('normal');
+                        }
+                        if(is_logado()){
+                            echo manModal('normalS');
+                        }
                         include_once("pages/filtrar.php"); 
                     ?>
                 </div>

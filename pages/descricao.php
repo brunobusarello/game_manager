@@ -68,6 +68,14 @@
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#descModal<?php echo $reg->cod ?>">
                                 Descrição
                             </button>
+                            <?php
+                                if(is_admin()){
+                                    echo remove($reg->cod);
+                                }
+                                if(is_editor()){
+
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
