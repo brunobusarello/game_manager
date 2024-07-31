@@ -127,7 +127,7 @@ img.mini {
   }
 
   .filtrado {
-    font-size: 20px;
+    font-size: 26px;
   }
 
   .celMenu {
@@ -136,4 +136,8 @@ img.mini {
 
   .fullModal{
     z-index: 9999;
+  }
+
+  .notSoBig{
+    font-size: 18px;
   }

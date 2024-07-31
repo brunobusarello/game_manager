@@ -55,27 +55,33 @@
                     </button>
                 </h2>
                 <div id="collapse<?php echo $reg->cod ?>" class="accordion-collapse collapse" data-bs-parent="#accordionDesc">
-                    <div class="accordion-body d-flex">
-                        <img src="<?php echo $t ?>" alt="<?php $reg->nome ?>" class="mini">
-                        <div class="flex-column m-5">
-                            <?php
-                                echo "
-                                    <strong>Nota: </strong> $reg->nota <br>
-                                    <strong>Produtora: </strong> $reg->produtora <br>
-                                    <strong>Gênero: </strong> $reg->genero <br>
-                                ";
-                            ?>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#descModal<?php echo $reg->cod ?>">
-                                Descrição
-                            </button>
-                            <?php
-                                if(is_admin()){
-                                    echo remove($reg->cod);
-                                }
-                                if(is_editor()){
-
-                                }
-                            ?>
+                    <div class="accordion-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm p-2">
+                                    <img src="<?php echo $t ?>" alt="<?php $reg->nome ?>" class="mini">
+                                </div>
+                                <div class="col-sm p-2">
+                                    <?php
+                                        echo "
+                                            <strong>Nota: </strong> $reg->nota <br>
+                                            <strong>Produtora: </strong> $reg->produtora <br>
+                                            <strong>Gênero: </strong> $reg->genero <br>
+                                        ";
+                                    ?>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#descModal<?php echo $reg->cod ?>">
+                                        Descrição
+                                    </button>
+                                    <?php
+                                        if(is_logado()){
+                                            echo edit("edit"."$reg->cod");
+                                        }
+                                        if(is_admin()){
+                                            echo remove("edit"."$reg->cod");
+                                        }
+                                    ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

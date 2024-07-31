@@ -38,8 +38,8 @@
       require_once "includes/login.php";
       require_once "pages/toasts.php";
       require_once "pages/theme.php";
-      require_once "pages/add.php";
-      require_once "pages/gerenciar.php";
+      require_once "pages/admin.php";
+      require_once "pages/editor.php";
       $ordem = $_GET['o'] ?? "n";
       $chave = $_GET['c'] ?? "";
       $lista = $_GET['l'] ?? "";
@@ -94,7 +94,7 @@
                 </div>
                 <div class="offcanvas-body">
                     <!-- Conteúdo do offcanvas -->
-                    <div class="p-3">
+                    <div class="p-3 w-100">
                         <?php
                             echo $mostrar;
                         ?>
