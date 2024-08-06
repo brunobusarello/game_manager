@@ -15,10 +15,18 @@
             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
         </div>
             <div class=\"modal-body\">
-                <div class='d-flex justify-content-center'>
-                    <button type=\"button\" class=\"btn btn-primary btn-lg m-4 p-4\">Usuário</button>
-                    <button type=\"button\" class=\"btn btn-primary btn-lg m-4\">Produtora</button>
-                    <button type=\"button\" class=\"btn btn-primary btn-lg m-4\">Jogo</button>
+                <div class=\"container text-center\">
+                    <div class=\"row\">
+                        <div class=\"col-sm p-1\">
+                            <button class=\"btn btn-primary btn-lg\" data-bs-target=\"#newUser\" data-bs-toggle=\"modal\">Usuário</button>
+                        </div>
+                        <div class=\"col-sm p-1\">
+                            <button type=\"button\" class=\"btn btn-primary btn-lg\">Produtora</button>
+                        </div>
+                        <div class=\"col-sm p-1\">
+                            <button type=\"button\" class=\"btn btn-primary btn-lg\">Jogo</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class=\"modal-footer\">

@@ -32,7 +32,6 @@
 
     <?php
       ob_start();
-      // "COPIA" o arquivo banco.php
       require_once "includes/banco.php";
       require_once "includes/funcoes.php";
       require_once "includes/login.php";
@@ -40,11 +39,10 @@
       require_once "pages/theme.php";
       require_once "pages/admin.php";
       require_once "pages/editor.php";
+      require_once "new-user.php";
       $ordem = $_GET['o'] ?? "n";
       $chave = $_GET['c'] ?? "";
       $lista = $_GET['l'] ?? "";
-      $btnAdmin = "";
-      $btnEditor = "";
       $mostrar = "";
       if(empty($_SESSION['user'])){
         $mostrar = "<a class=\"btn btn-primary\" href=\"user-login.php\" role=\"button\">Login</a>";
@@ -81,7 +79,9 @@
                 </div>
                 <div class="p-3 d-lg-none"> <!-- Mostrar apenas em dispositivos menores -->
                     <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                        <span class="navbar-toggler-icon"></span>
+                    <span class="material-symbols-outlined">
+                        menu
+                    </span>
                     </button>
                 </div>
             </div>
@@ -208,18 +208,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <!--
     <script type="text/javascript">
         <?php if ($chave != "") { ?>
             const toastLiveExample = document.getElementById('filterMsg');
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
             toastBootstrap.show();
             setTimeout(() => {
-                
+                toastBootstrap.hide();
             }, 3000);
             
         <?php } 
             ob_end_flush();
         ?>
     </script>
+    -->
 </body>
 </html>
